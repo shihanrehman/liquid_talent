@@ -19,3 +19,18 @@ I will revert to the folliwing items:
  	-Parse content
  	-Save content to HTML and CSV files
  	-Possibly collect information from each listing if above tasks are succssful 
+
+11/5/2015
+
+URL for MORE TAB in angel_List (Pagination)
+	- Request URL:
+	https://angel.co/people?tag_ids%5B%5D=1664&tag_ids%5B%5D=82532&page=3
+	
+
+Profiles
+	Get the individual text : File Gem
+	-LinkedIN URL
+	-skills
+	-education
+	-work history
+
