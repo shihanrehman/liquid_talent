@@ -7,22 +7,22 @@ i = 0
 loop do #scrape through multiple pages
 	i += 1
 	url = "https://angel.co/people?tag_ids%5B%5D=1664&tag_ids%5B%5D=82532&page=#{i}" #Save the URL in a variable called url
-	html = open(url)
-	page = Nokogiri::HTML(html)
-	puts page.class
-	page.css('a.profile-link').each do |line|
-		name << line.text
-		puts line.class 	
+	html = open(url) #opens the url and assigns value to html
+	page = Nokogiri::HTML(html) #parses variable html with NOKOgiri
+	#puts page.class 
+	page.css('a.profile-link').each do |line| #search for each profile name, 'a.profile-link' is a selector of the .css method, which is built into Nokogiri
+		name << line.text	#Forces the extracted text in the html to name array
+		#puts line.class 	
 	end
-	if page.css('a.profile-link').count == 0
-		break
+	if page.css('a.profile-link').count == 0	#breaks loop count when there are no more pages to count
+	   break
 	end
 end
 
 
-CSV.open("angel_listings.csv", "w") do |file|  #generate CSV file
+CSV.open("angel_listings.csv", "w") do |file|  #generate CSV file 
   file << ["Listing Name"]
-
+  		#puts file.class
   name.length.times do |i|
     file << [name[i]]
   end
